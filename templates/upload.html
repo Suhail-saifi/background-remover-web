@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Background from Image</title>
+    <link
+      rel="shortcut icon"
+      href="https://www.remove.bg/favicon.ico"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    
+    <header>
+    <!-- <div class="flex justify-between items-center p-2 cursor-pointer">
+      <div onclick="showSideBar()" class="hamburger inline-block p-2 cursor-pointer xl:hidden rounded">
+        <div class="line h-0.5 w-6 bg-black"></div>
+        <div class="line h-0.5 w-6 mt-1 bg-black"></div>
+        <div class="line h-0.5 w-6 mt-1 bg-black"></div>
+    </div>
+       -->
+<!-- 
+      <div class="logo flex space-x-4">
+        <div class="md:m-5">Remove Background</div>
+        <div class="features w-fit transition:all space-y-3 md:space-y-0 md:m-5 md:w-auto md:static h-auto md:bg-white md:space-x-4 -translate-x-96 md:translate-x-0 bg-slate-200 mt-[15vw] ml-6 md:m-0 md:flex absolute inset-0">
+          <div class="fitem">Remove Background</div>
+          <div class="fitem">How to use?</div>
+          <div class="fitem">Tools and API</div>
+          <div class="fitem">Pricing</div>
+          <div class="fitem">Login</div>
+        </div>
+      </div>
+      
+      <div class="cart">
+        cart
+      </div>
+      <div class="account">
+        Account
+      </div>
+    </div> -->
+  </header>
+
+<!-- <div onclick="showSideBar()" class="video md:mt-0 flex flex-col md:flex-row md:items-center md:mx-20 items-center xl:flex xl:flex-col xl:items-center xl:justify-center gap-6 md:gap-8 md:max-w-2xl xl:justify-center xl:max-w-[100%]">
+
+  <video preload="auto" class="w-full h-auto rounded-4xl max-w-[320px] lg:max-w-[420px]" poster="https://sb.kaleidousercontent.com/67418/840x560/d749ed76de/manuel-poster.jpg" autoplay="" playsinline="true" src="https://sb.kaleidousercontent.com/67418/x/9289c7b8dd/manuel_compressed.mp4"></video>
+
+  <div class="flex flex-col gap-4"><h1 class="font-bold text-typo m-0 text-4xl md:text-5xl lg:text-6xl text-center md:!text-left">Remove Image Background</h1> <p class=" font-bold text-xl m-0 !text-typo text-center md:!text-left">
+  100% Automatically and 
+  <span class="!py-1 !px-4 bg-brush bg-no-repeat bg-cover bg-center">
+    Free
+  </span></p>
+</div>
+</div> -->
+
+    <div class="flex flex-col items-center justify-center">
+      <h1 class="text-center m-5 bg-blue-600 px-4 py-3 rounded-full text-white">
+        Upload Image
+      </h1>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" required />
+        <button
+          class="block mx-auto my-4 text-center m-5 bg-orange-600 px-4 py-3 rounded-full text-white"
+          type="submit"
+        >
+          Upload
+        </button>
+      </form>
+    </div>
+
+
+
+    <script>
+      let sidebarVisible = false;
+    
+      function showSideBar() {
+        const sidebar = document.querySelector('.features');
+        const video = document.querySelector(".video");
+        const line1 = document.querySelector(".hamburger .line:nth-child(1)");
+        const line2 = document.querySelector(".hamburger .line:nth-child(2)");
+        const line3 = document.querySelector(".hamburger .line:nth-child(3)");
+        if (sidebarVisible) {
+          sidebar.style.transform = 'translateX(-140%)';
+          video.style.marginTop = "5vw";
+          line1.style.transform = 'rotate(0deg) translate(0px,0px)';
+          line2.style.transform = 'rotate(0deg) translate(0px,0px)';
+          line3.style.display = '';
+        } else {
+          sidebar.style.transform = 'translateX(0)';
+          sidebar.style.height = '46vw';
+          sidebar.style.width = '90vw';
+          video.style.marginTop = "52vw";
+          line1.style.transform = 'rotate(45deg) translate(3px,3px)';
+          line2.style.transform = 'rotate(-45deg) translate(3px,-3px)';
+          line3.style.display = 'none';
+        }
+        sidebarVisible = !sidebarVisible;
+      }
+      
+    </script>
+    
+  </body>
+</html>
+
